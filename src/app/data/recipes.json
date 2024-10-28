@@ -1,0 +1,73 @@
+{
+    "chicken-breast": {
+      "title": "Air Fryer Chicken Breast",
+      "cookingTime": "15 minutes",
+      "temperature": { "imperial": "380°F", "metric": "193°C" },
+      "kitchenAid": "airfryer",
+      "meatType": "poultry",
+      "animal": "chicken",
+      "cut": "breast",
+      "instructions": [
+        "Preheat the air fryer to 380°F (193°C).",
+        "Season the chicken breasts with salt, pepper, and your choice of spices.",
+        "Place chicken in the air fryer basket and cook for 10-15 minutes, flipping halfway through."
+      ]
+    },
+    "chicken-wings": {
+      "title": "Air Fryer Chicken Wings",
+      "cookingTime": "25 minutes",
+      "temperature": { "imperial": "400°F", "metric": "204°C" },
+      "kitchenAid": "airfryer",
+      "meatType": "poultry",
+      "animal": "chicken",
+      "cut": "wings",
+      "instructions": [
+        "Preheat the air fryer to 400°F (204°C).",
+        "Season wings with salt, pepper, and spices or sauce of your choice.",
+        "Cook for 25 minutes, shaking the basket halfway through for even cooking."
+      ]
+    },
+    "beef-steak": {
+      "title": "Air Fryer Beef Steak",
+      "cookingTime": "12 minutes",
+      "temperature": { "imperial": "400°F", "metric": "204°C" },
+      "kitchenAid": "airfryer",
+      "meatType": "red meat",
+      "animal": "beef",
+      "cut": "steak",
+      "instructions": [
+        "Preheat the air fryer to 400°F (204°C).",
+        "Season the steak with salt, pepper, and garlic powder.",
+        "Cook for 10-12 minutes, flipping halfway through, until desired doneness is reached."
+      ]
+    },
+    "pork-chops": {
+      "title": "Air Fryer Pork Chops",
+      "cookingTime": "12 minutes",
+      "temperature": { "imperial": "380°F", "metric": "193°C" },
+      "kitchenAid": "airfryer",
+      "meatType": "red meat",
+      "animal": "pork",
+      "cut": "chops",
+      "instructions": [
+        "Preheat the air fryer to 380°F (193°C).",
+        "Season pork chops with salt, pepper, and herbs.",
+        "Cook for 10-12 minutes, flipping halfway through."
+      ]
+    },
+    "salmon-filet": {
+      "title": "Air Fryer Salmon Filet",
+      "cookingTime": "10 minutes",
+      "temperature": { "imperial": "400°F", "metric": "204°C" },
+      "kitchenAid": "airfryer",
+      "meatType": "fish",
+      "animal": "salmon",
+      "cut": "filet",
+      "instructions": [
+        "Preheat the air fryer to 400°F (204°C).",
+        "Season salmon with salt, pepper, and lemon juice.",
+        "Cook for 8-10 minutes, skin-side down."
+      ]
+    }
+  }
+  

@@ -1,17 +1,18 @@
-import recipes from '../data/recipes.json';
+// pages/index.tsx
 import Link from 'next/link';
+import recipes from './data/recipes.json';
 
-const Home = () => {
+const HomePage = () => {
   return (
     <div>
       <h1>Recipe List</h1>
       <ul>
         {Object.keys(recipes).map(slug => (
           <li key={slug}>
-            <Link href={`/recipes/${slug}`}>
-                <h2>{recipes[slug].title}</h2>
-                <p><strong>Cooking Time:</strong> {recipes[slug].cookingTime}</p>
-                <p><strong>Temperature:</strong> {recipes[slug].temperature.imperial} / {recipes[slug].temperature.metric}</p>
+            <Link href={`/recipe/${slug}`}>
+              <h2>{recipes[slug].title}</h2>
+              <p><strong>Cooking Time:</strong> {recipes[slug].cookingTime}</p>
+              <p><strong>Temperature:</strong> {recipes[slug].temperature.imperial} / {recipes[slug].temperature.metric}</p>
             </Link>
           </li>
         ))}
@@ -20,4 +21,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default HomePage;
