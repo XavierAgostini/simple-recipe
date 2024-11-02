@@ -1,43 +1,67 @@
-// src/app/pages/recipes/[slug]/page.tsx
-import recipes from "../../data/recipes.json";
-import Head from 'next/head';
+import Layout from '../../../components/layout';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Thermometer, Clock } from 'lucide-react';
 
-const RecipePage = async ({ params }: { params: { slug: string } }) => {
-  // Explicitly await params in case Next.js needs async handling here
-  const { slug } = await params;
-  const recipe = recipes[slug];
+// This would typically come from a database or API
+const dummyRecipes = [
+  {
+    slug: 'grilled-chicken-breast',
+    title: 'Grilled Chicken Breast',
+    temp: '400°F',
+    time: '20 min',
+    instructions: [
+      'Preheat grill to 400°F',
+      'Season chicken breasts with salt and pepper',
+      'Grill for 6-8 minutes per side',
+      'Let rest for 5 minutes before serving',
+    ],
+  },
+  // Add more recipes here...
+];
+
+export default function RecipePage({ params }: { params: { slug: string } }) {
+  const recipe = dummyRecipes.find((r) => r.slug === params.slug);
 
   if (!recipe) {
-    return <p>Recipe not found</p>;
+    return <div>Recipe not found</div>;
   }
 
   return (
-    <div>
-        <Head>
-            <title>{recipe.title}</title>
-            <meta name="description" content={`Learn how to make delicious ${recipe.title} in your air fryer. Perfect for ${recipe.cookingTime} at ${recipe.temperature.imperial} / ${recipe.temperature.metric}.`} />
-            <meta property="og:title" content={recipe.title} />
-            <meta property="og:description" content={recipe.description} />
-            <meta property="og:type" content="article" />
-        {/* <meta property="og:image" content="/path-to-image.jpg" /> Optional, update to actual image path */}
-        </Head>
-      <h1>{recipe.title}</h1>
-      <p><strong>Meat Type:</strong> {recipe.meatType}</p>
-      <p><strong>Animal:</strong> {recipe.animal}</p>
-      <p><strong>Cut:</strong> {recipe.cut}</p>
-      <p><strong>Cooking Time:</strong> {recipe.cookingTime}</p>
-      <p>
-        <strong>Temperature:</strong> {recipe.temperature.imperial} / {recipe.temperature.metric}
-      </p>
-      <p><strong>Kitchen Aid:</strong> {recipe.kitchenAid}</p>
-      <h2>Instructions</h2>
-      <ol>
-        {recipe.instructions.map((instruction, index) => (
-          <li key={index}>{instruction}</li>
-        ))}
-      </ol>
-    </div>
+    <Layout>
+      <div className="flex flex-col p-6 sm:p-12 sm:w-4/5 max-w-3xl">
+        <div className="">
+          <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
+            {recipe.title}
+          </h1>
+          <div>
+            <h2 className="mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">
+              Airfyer
+            </h2>
+          </div>
+        </div>
+        <div>
+          <div className="flex flex-row gap-6 py-8">
+            <div className="flex items-center leading-7 [&:not(:first-child)]:mt-6">
+              <Thermometer className="w-12 h-12 mr-2 text-gray-600 dark:text-gray-400" />
+              <span className="dark:text-gray-300">{recipe.temp}</span>
+            </div>
+            <div className="flex items-center">
+              <Clock className="w-10 h-10 mr-2 text-gray-600 dark:text-gray-400" />
+              <span className="dark:text-gray-300">{recipe.time}</span>
+            </div>
+          </div>
+          <div className="pt-4">
+            <h3 className="text-xl font-semibold dark:text-white mb-4">
+              Instructions
+            </h3>
+            <ol className="list-decimal list-inside space-y-2 text-lg text-gray-800 dark:text-gray-300">
+              {recipe.instructions.map((instruction, index) => (
+                <li key={index}>{instruction}</li>
+              ))}
+            </ol>
+          </div>
+        </div>
+      </div>
+    </Layout>
   );
-};
-
-export default RecipePage;
+}
